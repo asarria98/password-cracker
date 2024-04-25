@@ -9,6 +9,7 @@ compile:
 	mkdir -p out
 	gcc src/hash.c src/utils.c -o out/hasher -lcrypto -Wno-deprecated-declarations
 	gcc src/crack.c src/utils.c -o out/cracker -lcrypto -Wno-deprecated-declarations
+	gcc src/crack-openmp.c src/utils.c -o out/cracker-openmp -lcrypto -Wno-deprecated-declarations -fopenmp
 
 hash-hola:
 	./out/hasher hola
