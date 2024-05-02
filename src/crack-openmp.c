@@ -3,13 +3,13 @@
 #include <string.h>
 #include "utils.h"
 
-void launchParallel(char *charset, char *hash, int length, char *prefix, int prefixLength) {
+void launchParallel(char *dictionary, char *hash, int length, char *key, int key_length) {
     #pragma omp parallel for
-    for (int i = 0; i < strlen(charset); i++) {
-        char newPrefix[length + 1];
-        strcpy(newPrefix, prefix);
-        newPrefix[prefixLength] = charset[i];
-        generateCombinations(charset, hash, length, newPrefix, prefixLength + 1);
+    for (int i = 0; i < strlen(dictionary); i++) {
+        char new_key[length + 1];
+        strcpy(new_key, key);
+        new_key[key_length] = dictionary[i];
+        generateCombinations(dictionary, hash, length, new_key, key_length + 1);
     }
 }
 
