@@ -19,20 +19,20 @@ int compute_hash(char *str, unsigned char mdString[KEY_SIZE]) {
     return 0;
 }
 
-void generateCombinations(char *charset, char *hash, int length, char *prefix, int prefixLength) {
-    if (prefixLength == length) {
+void generateCombinations(char *dictionary, char *hash, int length, char *key, int key_length) {
+    if (key_length== length) {
         char hashString[KEY_SIZE];
-        compute_hash(prefix, hashString);
-
+        compute_hash(key, hashString);
+        key[length] = '\0';
         if (strcmp(hashString, hash) == 0) {
-            printf("Hash de ('%s') = %s\n", prefix, hash);
+            printf("Hash de ('%s') = %s\n", key, hash);
             exit(0);
         }
         return;
     }
 
-    for (int i = 0; i < strlen(charset); i++) {
-        prefix[prefixLength] = charset[i];
-        generateCombinations(charset, hash, length, prefix, prefixLength + 1);
+    for (int i = 0; i < strlen(dictionary); i++) {
+        key[key_length] = dictionary[i];
+        generateCombinations(dictionary, hash, length, key, key_length+ 1);
     }
 }
