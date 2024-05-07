@@ -3,6 +3,7 @@ HASH_TO_CRACK="b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716ccaa7cd4ddb79"
 # HASH_TO_CRACK="a10335a2644cd19e4af502cb5abe0d85c3878caff3449f8fe206b556d490d6b4" # tetris
 
 BASE_DICT="abcdefghijklmnopqrstuvwxyz"
+SMALL_DICT="abcdefghijklmnopqrstuvwxyz0123456789"
 MEDIUM_DICT="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 BIG_DICT="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
