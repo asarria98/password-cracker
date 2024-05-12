@@ -1,13 +1,28 @@
 #!/bin/bash
 
-output_file="tiempos.csv"
+# Verifica si se proporcionan los argumentos necesarios
+if [ "$#" -ne 2 ]; then
+    echo "Uso: $0 <diccionario> <hash>"
+    exit 1
+fi
+
+diccionario=$1
+hash=$2
+output_file="tiempos_mpi.csv"
+
+# Verifica si el archivo CSV ya existe
+if [ ! -e "$output_file" ]; then
+    # Si no existe, crea el encabezado
+    echo "nucleos,tiempo" > "$output_file"
+fi
 
 # Recorre diferentes números de núcleos
-#for num_cores in 1 2 4 6 8; do
 for num_cores in 1 2 4 6; do
     # Ejecutar el comando con time y capturar el tiempo real
-    real_time=$( { time -p mpirun -quiet -np $num_cores ./out/cracker-mpi abcdefghijklmnopqrstuvwxyz0123456789 7215d1384efb84579b4490f1fb9b4cbedb098956b54f3218f48ea28a9ebcaf67; } 2>&1 | awk '/^real/ {print $2}' )
+    real_time=$( { time -p mpirun -quiet -np $num_cores ./out/cracker-mpi "$diccionario" "$hash"; } 2>&1 | awk '/^real/ {print $2}' )
 
     # Guardar el tiempo en el archivo CSV
-    echo "Numero de núcleos: $num_cores, Time: $real_time" >> $output_file
+    echo "$num_cores,$real_time" >> "$output_file"
 done
+
+echo "Los tiempos de ejecución se han guardado en $output_file"

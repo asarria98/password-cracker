@@ -31,3 +31,24 @@ Una vez compilado, puedes ejecutar el programa utilizando el binario generado. O
 ```sh
 ./out/hasher hola
 ```
+
+## Pruebas:
+
+Las funciones de hash, diccionario, palabras  y núcleos que se han utilizado para obtener los tiempos de ejecución son los siguientes.
+ - Hasheado SHA256
+ - Diccionario: abcdefghijklmnopqrstuvwxyz0123456789
+ - hola
+ - clavo
+ - casero
+ - Núcleos: 1,2,4,6,(8)
+
+#### Resultados OPENMP
+
+- tiempos_openmp.csv
+
+#### Resultados MPI
+
+- tiempos_mpi.csv
+
+
+

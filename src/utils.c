@@ -19,6 +19,7 @@ int compute_hash(char *str, unsigned char mdString[KEY_SIZE]) {
     return 0;
 }
 
+
 void generateCombinations(char *dictionary, char *hash, int length, char *key, int key_length) {
     if (key_length== length) {
         char hashString[KEY_SIZE];
