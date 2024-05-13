@@ -40,15 +40,27 @@ Las funciones de hash, diccionario, palabras  y núcleos que se han utilizado pa
  - hola
  - clavo
  - casero
- - Núcleos: 1,2,4,6,(8)
+ - Núcleos: 1,2,4,6
 
-#### Resultados OPENMP
+## bucle_openmp.sh
 
-- tiempos_openmp.csv
+Para lanzar el script que obtiene los tiempos de ejecución en función de los nucleos usados:
 
-#### Resultados MPI
+```sh
+./bucle_openmp.sh diccionario hash nombre_csv 
+```
 
-- tiempos_mpi.csv
+## bucle_mpo.sh
+
+Para lanzar el script que obtiene los tiempos de ejecución en función de los nucleos usados:
+
+```sh
+./bucle_mpi.sh diccionario hash nombre_csv 
+```
+
+## Resultados
+
+ - Los tiempos de ejecución para cada una de las palabras se enceuntran en la carpeta results.
 
 
 
