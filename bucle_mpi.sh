@@ -18,9 +18,9 @@ output_file="${result_dir}/${nombre_csv}_tiempos_mpi.csv"
 mkdir -p "$result_dir"
 
 # Recorre diferentes números de núcleos
-for num_cores in 1 2 4 6; do
+for num_cores in 1 2 4 6 8; do
     # Ejecutar el comando con time y capturar el tiempo real
-    real_time=$( { time -p mpirun -quiet -np $num_cores ./out/cracker-mpi "$diccionario" "$hash"; } 2>&1 | awk '/^real/ {print $2}' )
+    real_time=$( { time -p mpirun -np $num_cores ./out/cracker-mpi "$diccionario" "$hash"; } 2>&1 | awk '/^real/ {print $2}' )
 
     # Reemplaza la coma por un punto para el tiempo
     real_time=$(echo "$real_time" | tr ',' '.')

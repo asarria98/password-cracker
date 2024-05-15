@@ -15,7 +15,7 @@ nombre_csv=$3
 csv_file="results/${nombre_csv}_tiempos_openmp.csv"
 
 # Iterar sobre el número de hilos
-for num_threads in 1 2 4 6; do
+for num_threads in 1 2 4 6 8; do
     # Establecer el número de hilos
     export OMP_NUM_THREADS=$num_threads
     
